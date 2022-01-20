@@ -3,6 +3,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.EventLog;
 using System;
 using System.Collections.Concurrent;
 using System.Runtime.InteropServices;
@@ -60,7 +61,7 @@ namespace InMemoryLoggerAndProvider
                      * Where eventLogName is the actual name such as "MyAppLog"
                      * To Remove use: Remove-EventLog -LogName eventLogName   
                      */
-                    ////builder.AddEventLog(new EventLogSettings { LogName = eventLogName, SourceName = eventLogName });
+                    builder.AddEventLog(new EventLogSettings { LogName = eventLogName, SourceName = eventLogName });
                 }
             });
         }

@@ -31,12 +31,9 @@ namespace InMemoryLoggerAndProvider
                 return;
             }
 
-            if (state != null)
-            {
-                var keyValuePairs = (IReadOnlyList<KeyValuePair<string, object>>)state;
-                var message = formatter(state, exception);
-                LogEntries.Add(new LogEntry(logLevel, eventId, keyValuePairs, message));
-            }
+            var keyValuePairs = (IReadOnlyList<KeyValuePair<string, object>>)state!;
+            var message = formatter(state, exception);
+            LogEntries.Add(new LogEntry(logLevel, eventId, keyValuePairs, message));
         }
     }
 }
