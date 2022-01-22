@@ -10,7 +10,7 @@ namespace InMemoryLoggerAndProvider
         {
             private readonly List<KeyValuePair<string, object?>> _keyValuePairs;
             private string MethodName { get; }
-            private readonly BlogPost BlogPost { get; }            
+            private readonly BlogPost BlogPost { get; }
 
             public BlogLogState(LogEvent logEvent, string methodName, BlogPost blogPost)
             {
@@ -47,7 +47,7 @@ namespace InMemoryLoggerAndProvider
                 };
             }
 
-            public int Count => 8;
+            public int Count => _keyValuePairs.Count;
 
             public IEnumerator<KeyValuePair<string, object?>> GetEnumerator()
             {
