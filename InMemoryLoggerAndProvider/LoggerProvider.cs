@@ -24,7 +24,7 @@ namespace InMemoryLoggerAndProvider
             this.eventLogName = eventLogName;
 
             telemetryChannel = new InMemoryChannel();
-            loggerFactory = new LoggerFactory();
+            loggerFactory = new LoggerFactory();            
             loggerFactory = LoggerFactory.Create(builder =>
             {
                 builder
@@ -77,6 +77,7 @@ namespace InMemoryLoggerAndProvider
             {
                 telemetryChannel.Flush();
                 telemetryChannel.Dispose();
+                loggerFactory.Dispose();
                 _disposed = true;
             }
         }
