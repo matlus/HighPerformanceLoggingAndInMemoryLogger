@@ -21,7 +21,7 @@ namespace InMemoryLoggerAndProvider
 
         public bool IsEnabled(LogLevel logLevel)
         {
-            return (logLevel >= LogLevel.Debug);
+            return (logLevel >= LogLevel.Debug && logLevel < LogLevel.None);
         }
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
@@ -33,7 +33,7 @@ namespace InMemoryLoggerAndProvider
 
             var keyValuePairs = (IReadOnlyList<KeyValuePair<string, object>>)state!;
             var message = formatter(state, exception);
-            LogEntries.Add(new LogEntry(logLevel, eventId, keyValuePairs, message));
+            LogEntries.Add(new LogEntry(logLevel, eventId, keyValuePairs, message, exception));
         }
     }
 }

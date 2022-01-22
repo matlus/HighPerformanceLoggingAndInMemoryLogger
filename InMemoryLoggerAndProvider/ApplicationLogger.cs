@@ -43,6 +43,8 @@ namespace InMemoryLoggerAndProvider
             {
                 var blogLogState = new BlogLogState(logEvent, methodName, blogPost);
                 _logger.Log(LogLevel.Debug, new EventId((int)logEvent, logEvent.ToString()), blogLogState, exception: null, BlogLogState.Format);
+                ////var blogPostLogState = new BlogPostLogState(logEvent, methodName, blogPost);
+                ////_logger.Log(LogLevel.Debug, new EventId((int)logEvent, logEvent.ToString()), blogPostLogState, exception: null, blogPostLogState.Format);
             }
         }
 

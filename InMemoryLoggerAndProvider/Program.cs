@@ -29,7 +29,7 @@ namespace InMemoryLoggerAndProvider
                 ////executionStep = ExecutionStep.Step3;
                 ////applicationLogger.LogWarning(LogEvent.SomeAppEvent3, nameof(Main), executionStep, 42);
 
-                ////executionStep = ExecutionStep.Completed;
+                executionStep = ExecutionStep.Completed;
             }
             catch (Exception e)
             {
